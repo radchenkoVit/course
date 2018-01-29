@@ -8,7 +8,7 @@ public class AddAircraftView {
     private AirlineController controller;
     private ConsoleReader console;
 
-    public AddAircraftView(AirlineController controller, ConsoleReader console) {
+    public AddAircraftView(ConsoleReader console, AirlineController controller) {
         this.controller = controller;
         this.console = console;
     }

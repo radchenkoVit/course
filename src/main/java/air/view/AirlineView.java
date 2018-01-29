@@ -12,12 +12,14 @@ public class AirlineView implements IAirlineView {
 
     private FindAircraftView findAircraftView;
     private SortView sortView;
+    private AddAircraftView addAircraftView;
 
     public AirlineView(AirlineController controller){
         console = new ConsoleReader();
         this.controller = controller;
         findAircraftView = new FindAircraftView(console, controller);
         sortView = new SortView(console, controller);
+        addAircraftView = new AddAircraftView(console, controller);
     }
 
     @Override
@@ -42,7 +44,7 @@ public class AirlineView implements IAirlineView {
                 case 5:
                     sortView.sortMenu();
                 case 6:
-
+                    addAircraftView.run();
                     break;
                 case 7:
                     filterByFlightRange();
@@ -69,10 +71,6 @@ public class AirlineView implements IAirlineView {
         System.out.println();
     }
 
-    private void sort() {
-        sortView.displayByFlightRange();
-    }
-
     private void calculateTotalCapacity(){
         System.out.println("Total capacity is: " + controller.getTotalCapacity());
         System.out.println("Total carrying capacity is: " + controller.getCarryingCapacity());
@@ -80,10 +78,6 @@ public class AirlineView implements IAirlineView {
 
     private void displayListOfAircraft(){
         System.out.println(controller.getAllAsString());
-    }
-
-    private void sortAirPlanes(){
-        sortView.sortMenu();
     }
 
     private void displayMainMenu(){
