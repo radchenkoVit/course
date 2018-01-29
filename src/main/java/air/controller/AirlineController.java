@@ -1,5 +1,6 @@
 package air.controller;
 
+import air.exceptions.NotFoundException;
 import air.model.Aircraft;
 
 import java.util.Comparator;
@@ -41,25 +42,25 @@ public class AirlineController {
                 .collect(Collectors.toList());
     }
 
-    public Aircraft findAircraft(int id){
+    public Aircraft findAircraft(int id) throws NotFoundException {
         Optional<Aircraft> aircraft = aircrafts.stream().filter(craft -> craft.getId() == id).findFirst();
         if (aircraft != null && aircraft.isPresent()){
             return aircraft.get();
         }
 
-        throw new RuntimeException("Not found aircraft exception");
+        throw new NotFoundException("Not found aircraft exception");
     }
 
-    public List<Aircraft> findAircraft(String name){
-        List<Aircraft> list = aircrafts.stream().filter(craft -> craft.getName().contains(name)).collect(Collectors.toList());
+    public List<Aircraft> findAircraft(String name) throws NotFoundException {
+        List<Aircraft> list = aircrafts.stream().filter(craft -> craft.getName().toLowerCase().contains(name.toLowerCase())).collect(Collectors.toList());
         if (list.isEmpty()){
-            throw new RuntimeException("Not found aircraft exception");
+            throw new NotFoundException("Not found aircraft exception");
         }
 
         return list;
     }
 
-    public String displayListOfCraft(){
+    public String getAllAsString(){
         StringBuilder builder = new StringBuilder();
         aircrafts.forEach(craft -> builder.append(craft.toString()).append("\n"));
         return builder.toString();
