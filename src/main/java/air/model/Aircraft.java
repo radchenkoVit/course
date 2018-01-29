@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 @Builder
-public class Aircraft {
+public abstract class Aircraft {
     private int id;
     private String name;
 
