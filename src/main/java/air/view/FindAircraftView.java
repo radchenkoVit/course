@@ -45,8 +45,8 @@ public class FindAircraftView {
     }
 
     private void displayFindMenu(){
-        System.out.println("\nFind by: \n1. ID\n2. Name\n" +
-                "9. Back to main menu\n0. Exit");
+        System.out.println("\nFind by: \n   1. ID\n   2. Name\n" +
+                "   9. Back to main menu\n   0. Exit");
         System.out.print("Please, make your choice: ");
     }
 
@@ -57,7 +57,7 @@ public class FindAircraftView {
         try {
             validationController.isValidInteger(id);
         } catch (NotValidDataException e){
-            System.out.println("Validation is not passed, error: " + e.getMessage());
+            System.out.println("\nValidation is not passed, error: " + e.getMessage());
             return;
         }
 
@@ -65,7 +65,7 @@ public class FindAircraftView {
         try {
             aircraft = controller.findAircraft(id);
         } catch (NotFoundException e){
-            System.out.printf("Aircraft with id: %s is not found\n", id);
+            System.out.printf("\nAircraft with id: %s is not found\n", id);
             return;
         }
 
@@ -87,11 +87,11 @@ public class FindAircraftView {
         try {
             aircrafts = controller.findAircraft(name);
         } catch (NotFoundException e){
-            System.out.printf("Aircraft with id: %s is not found\n", name);
+            System.out.printf("\nAircraft with name: %s is not found\n", name);
             return;
         }
 
-        System.out.println("Aircrats found by name: " + aircrafts);
+        System.out.println("\nAircrats found by name: " + aircrafts);
 
         for (int i = 0; i < aircrafts.size(); i++) {
             System.out.printf("%d. Aircraft - %s\n", i + 1, aircrafts.get(i).getName());

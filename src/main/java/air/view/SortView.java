@@ -41,8 +41,8 @@ public class SortView {
 
     private int displaySortMenu() {
         System.out.println("Choose field that you would like sort by:\n" +
-                "1. Flight Range\n2. Carrying Capacity\n3. Passenger Capacity\n" +
-                "9. Back to prev menu\n0. Exit");
+                "   1. Flight Range\n   2. Carrying Capacity\n  3. Passenger Capacity\n" +
+                "   9. Back to prev menu\n  0. Exit");
 
         System.out.print("\nPlease, make your choice: ");
         return console.readInt();

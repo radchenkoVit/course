@@ -25,6 +25,7 @@ public class AirlineView implements IAirlineView {
     @Override
     public void run() {
         int choice = -1;
+        System.out.println("\nWelcome to Aircraft app, version 1.0.0. Powered By Test Task from Global Logic");
         while (choice != 0){
             displayMainMenu();
             choice = userChoice();
@@ -82,14 +83,14 @@ public class AirlineView implements IAirlineView {
 
     private void displayMainMenu(){
         System.out.println("\nEnter the next action:" +
-                "\n1. Calculate capacity" +
-                "\n2. Display all aircraft's" +
-                "\n3. Find aircraft" +
-                "\n4. Display aircraft by flight range" +
-                "\n5. Sort aircraft's" +
-                "\n6. Add aircraft" +
-                "\n7. Filter by range" +
-                "\n0. Exit\n");
+                "\n     1. Calculate capacity" +
+                "\n     2. Display all aircraft's" +
+                "\n     3. Find aircraft" +
+                "\n     4. Display aircraft by flight range" +
+                "\n     5. Sort aircraft's" +
+                "\n     6. Add aircraft" +
+                "\n     7. Filter by range" +
+                "\n     0. Exit\n");
     }
 
     private int userChoice(){
