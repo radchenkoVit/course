@@ -1,6 +1,8 @@
 package air.view;
 
 import air.controller.IAirlineController;
+import air.controller.IValidationController;
+import air.controller.ValidationController;
 import air.exceptions.NotFoundException;
 import air.exceptions.NotValidDataException;
 import air.model.Aircraft;
@@ -8,16 +10,15 @@ import air.utils.ConsoleReader;
 
 import java.util.List;
 
-import static air.controller.ValidationController.isValidAirCraftId;
-import static air.controller.ValidationController.isValidAirCraftName;
-
 public class FindAircraftView {
     private IAirlineController controller;
+    public IValidationController validationController;
     private ConsoleReader console;
 
     FindAircraftView(ConsoleReader console, IAirlineController controller){
         this.console = console;
         this.controller = controller;
+        validationController = new ValidationController();
     }
 
     public void findAircraftMenu(){
@@ -54,7 +55,7 @@ public class FindAircraftView {
         int id = console.readInt();
 
         try {
-            isValidAirCraftId(id);
+            validationController.isValidAirCraftId(id);
         } catch (NotValidDataException e){
             System.out.println("Validation is not passed, error: " + e.getMessage());
             return;
@@ -76,7 +77,7 @@ public class FindAircraftView {
         String name = console.readLine();
 
         try {
-            isValidAirCraftName(name);
+            validationController.isValidAirCraftName(name);
         } catch (NotValidDataException e){
             System.out.println("Validation is not passed, error: " + e.getMessage());
             return;
