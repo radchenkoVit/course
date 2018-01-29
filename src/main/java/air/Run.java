@@ -1,8 +1,8 @@
 package air;
 
 import air.controller.AirlineController;
+import air.controller.IAirlineController;
 import air.dao.DaoFactory;
-import air.dao.DaoFileImpl;
 import air.dao.IDao;
 import air.model.Aircraft;
 import air.utils.DataGenerator;
@@ -18,7 +18,7 @@ public class Run {
         DataGenerator.createFakeData(); //createFakeData
         IDao dao = DaoFactory.getWriter("file");
         List<Aircraft> aircrafts = dao.getAll();
-        AirlineController airlineController = new AirlineController(aircrafts);
+        IAirlineController airlineController = new AirlineController(aircrafts);
 
         IAirlineView application = new AirlineView(airlineController);
         application.run();

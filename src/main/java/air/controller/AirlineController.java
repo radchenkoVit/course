@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-public class AirlineController {
+public class AirlineController implements IAirlineController {
     private List<Aircraft> aircrafts;
 
     public AirlineController(List<Aircraft> aircrafts){

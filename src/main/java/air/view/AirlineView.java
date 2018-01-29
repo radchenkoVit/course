@@ -1,20 +1,21 @@
 package air.view;
 
 import air.controller.AirlineController;
+import air.controller.IAirlineController;
 import air.model.Aircraft;
 import air.utils.ConsoleReader;
 
 import java.util.List;
 
 public class AirlineView implements IAirlineView {
-    private AirlineController controller;
+    private IAirlineController controller;
     private ConsoleReader console;
 
     private FindAircraftView findAircraftView;
     private SortView sortView;
     private AddAircraftView addAircraftView;
 
-    public AirlineView(AirlineController controller){
+    public AirlineView(IAirlineController controller){
         console = new ConsoleReader();
         this.controller = controller;
         findAircraftView = new FindAircraftView(console, controller);

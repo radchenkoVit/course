@@ -1,6 +1,6 @@
 package air.view;
 
-import air.controller.AirlineController;
+import air.controller.IAirlineController;
 import air.exceptions.NotFoundException;
 import air.exceptions.NotValidDataException;
 import air.model.Aircraft;
@@ -12,10 +12,10 @@ import static air.controller.ValidationController.isValidAirCraftId;
 import static air.controller.ValidationController.isValidAirCraftName;
 
 public class FindAircraftView {
-    private AirlineController controller;
+    private IAirlineController controller;
     private ConsoleReader console;
 
-    FindAircraftView(ConsoleReader console, AirlineController controller){
+    FindAircraftView(ConsoleReader console, IAirlineController controller){
         this.console = console;
         this.controller = controller;
     }

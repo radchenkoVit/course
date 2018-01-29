@@ -1,16 +1,16 @@
 package air.view;
 
-import air.controller.AirlineController;
+import air.controller.IAirlineController;
 import air.model.Aircraft;
 import air.utils.ConsoleReader;
 
 import java.util.List;
 
 public class SortView {
-    private AirlineController controller;
+    private IAirlineController controller;
     private ConsoleReader console;
 
-    public SortView(ConsoleReader console, AirlineController controller){
+    public SortView(ConsoleReader console, IAirlineController controller){
         this.console = console;
         this.controller = controller;
     }
