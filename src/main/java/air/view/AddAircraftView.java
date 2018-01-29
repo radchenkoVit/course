@@ -2,6 +2,7 @@ package air.view;
 
 import air.controller.IAirlineController;
 import air.model.Aircraft;
+import air.model.powered.Plane;
 import air.utils.ConsoleReader;
 
 public class AddAircraftView {
@@ -21,10 +22,10 @@ public class AddAircraftView {
         System.out.println("Type carrying capacity");
         int carryingCapacity = console.readInt();
 
-        Aircraft aircraft = Aircraft.builder()
-                .id(controller.nextId())
-                .name(name)
-                .carryingCapacity(carryingCapacity).build();
+        Aircraft aircraft = new Plane();
+                aircraft.setId(controller.nextId());
+                aircraft.setName(name);
+                aircraft.setCarryingCapacity(carryingCapacity);
 
         if (controller.add(aircraft)){
             System.out.println("Was added");

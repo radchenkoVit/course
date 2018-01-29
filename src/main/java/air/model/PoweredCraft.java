@@ -1,7 +1,34 @@
 package air.model;
 
+import java.util.Objects;
+
 public abstract class PoweredCraft extends Aircraft {
-    protected PoweredCraft(int id, String name, int passengerCapacity, int capacity, int carryingCapacity, int takeOffWeight, int maximumTakeOffWeight, int flightRange, int rangeWithMaximumLoad, int cruisingSpeed, int maximumSpeed, int maxSpeedAtHeight, int emptyWeight, int maximumHeight, int practicalRange, int practicalRangeAtHeight) {
-        super(id, name, passengerCapacity, capacity, carryingCapacity, takeOffWeight, maximumTakeOffWeight, flightRange, rangeWithMaximumLoad, cruisingSpeed, maximumSpeed, maxSpeedAtHeight, emptyWeight, maximumHeight, practicalRange, practicalRangeAtHeight);
+    protected boolean withEngine;
+
+    public PoweredCraft(){
+        super();
+        isPowered = true;
+    }
+
+    public boolean isWithEngine() {
+        return withEngine;
+    }
+
+    public void setWithEngine(boolean withEngine) {
+        this.withEngine = withEngine;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        PoweredCraft that = (PoweredCraft) o;
+        return withEngine == that.withEngine;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), withEngine);
     }
 }

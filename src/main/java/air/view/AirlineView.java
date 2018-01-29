@@ -1,6 +1,5 @@
 package air.view;
 
-import air.controller.AirlineController;
 import air.controller.IAirlineController;
 import air.model.Aircraft;
 import air.utils.ConsoleReader;
