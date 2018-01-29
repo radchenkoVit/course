@@ -2,7 +2,6 @@ package air.controller;
 
 import air.model.Aircraft;
 
-import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
@@ -15,12 +14,11 @@ public class AirlineController {
         this.aircrafts = aircrafts;
     }
 
-    public int getNextId(){
+    public int nextId(){
         return aircrafts.size() + 1;
     }
 
     public boolean add(Aircraft aircraft){
-        //TODO VALIDATION, WERE IT SHOULD BE
         return aircrafts.add(aircraft);
     }
 

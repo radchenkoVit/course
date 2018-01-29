@@ -22,7 +22,7 @@ public class AddAircraftView {
         int carryingCapacity = console.readInt();
 
         Aircraft aircraft = Aircraft.builder()
-                .id(controller.getNextId())
+                .id(controller.nextId())
                 .name(name)
                 .carryingCapacity(carryingCapacity).build();
 
