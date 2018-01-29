@@ -13,7 +13,7 @@ public class ValidationController implements IValidationController {
         }
     }
 
-    public void isValidAirCraftId(int id) throws NotValidDataException {
+    public void isValidInteger(int id) throws NotValidDataException {
         if (id == Constant.WRONG_ENTER_CODE){
             throw new NotValidDataException("Not number");
         } else if (id < 0) {

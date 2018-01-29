@@ -55,7 +55,7 @@ public class FindAircraftView {
         int id = console.readInt();
 
         try {
-            validationController.isValidAirCraftId(id);
+            validationController.isValidInteger(id);
         } catch (NotValidDataException e){
             System.out.println("Validation is not passed, error: " + e.getMessage());
             return;
