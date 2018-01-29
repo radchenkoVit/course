@@ -42,7 +42,7 @@ public class AirlineView implements IAirlineView {
                 case 5:
                     sortView.sortMenu();
                 case 6:
-                    //TODO:
+
                     break;
                 case 7:
                     filterByFlightRange();
@@ -79,7 +79,7 @@ public class AirlineView implements IAirlineView {
     }
 
     private void displayListOfAircraft(){
-        System.out.println(controller.displayListOfCraft());
+        System.out.println(controller.getAllAsString());
     }
 
     private void sortAirPlanes(){

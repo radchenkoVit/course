@@ -1,6 +1,8 @@
 package air.view;
 
 import air.controller.AirlineController;
+import air.exceptions.NotFoundException;
+import air.exceptions.NotValidDataException;
 import air.model.Aircraft;
 import air.utils.ConsoleReader;
 
@@ -36,15 +38,15 @@ public class FindAircraftView {
                     System.exit(0);
                 default:
                     System.out.println("Unknown command\n");
-                    displayFindMenu();
                     break;
             }
         }
     }
 
     private void displayFindMenu(){
-        System.out.println("Find by: \n1. ID\n2. Name\n" +
+        System.out.println("\nFind by: \n1. ID\n2. Name\n" +
                 "9. Back to main menu\n0. Exit");
+        System.out.print("Please, make your choice: ");
     }
 
     private void findById(){
@@ -53,7 +55,7 @@ public class FindAircraftView {
 
         try {
             isValidAirCraftId(id);
-        } catch (Exception e){
+        } catch (NotValidDataException e){
             System.out.println("Validation is not passed, error: " + e.getMessage());
             return;
         }
@@ -61,7 +63,7 @@ public class FindAircraftView {
         Aircraft aircraft;
         try {
             aircraft = controller.findAircraft(id);
-        } catch (Exception e){
+        } catch (NotFoundException e){
             System.out.printf("Aircraft with id: %s is not found\n", id);
             return;
         }
@@ -75,7 +77,7 @@ public class FindAircraftView {
 
         try {
             isValidAirCraftName(name);
-        } catch (Exception e){
+        } catch (NotValidDataException e){
             System.out.println("Validation is not passed, error: " + e.getMessage());
             return;
         }
@@ -83,7 +85,7 @@ public class FindAircraftView {
         List<Aircraft> aircrafts;
         try {
             aircrafts = controller.findAircraft(name);
-        } catch (Exception e){
+        } catch (NotFoundException e){
             System.out.printf("Aircraft with id: %s is not found\n", name);
             return;
         }

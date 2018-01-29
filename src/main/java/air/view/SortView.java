@@ -23,10 +23,10 @@ public class SortView {
                     displayByFlightRange();
                     break;
                 case 2:
-                    displayByFlightRange();
+                    displayByCarryingCapacity();
                     break;
                 case 3:
-                    displayByFlightRange();
+                    displayByPassengerCapacity();
                     break;
                 case 9:
                     return;

@@ -25,3 +25,5 @@ out
 gen
 .target
 /.idea/*
+/target/*
+/target/*
