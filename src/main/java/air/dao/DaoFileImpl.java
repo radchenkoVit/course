@@ -13,13 +13,6 @@ import java.util.Collection;
 import java.util.List;
 
 public class DaoFileImpl implements IDao {
-    private static String planeInputPaths = Paths.get(
-            "src", "main", "resources", "data", "plane.json").toString();
-    private static String helicopterInputPaths = Paths.get(
-            "src", "main", "resources", "data", "helicopter.json").toString();
-    private static String aircraftOutputPaths = Paths.get(
-            "src", "main", "resources", "data", "output", "result_aircraft.json").toString();
-
     private static IDao dao;
 
     private DaoFileImpl(){
@@ -35,8 +28,10 @@ public class DaoFileImpl implements IDao {
     public List<Aircraft> getAll() throws IOException {
         ObjectMapper mapper = new ObjectMapper();
 
-        String jsonPlaneAsString = StringUtils.loadFileIntoString(planeInputPaths);
-        String jsonHelicopterAsString = StringUtils.loadFileIntoString(helicopterInputPaths);
+        String parent = System.getProperty("airline.input.path");
+
+        String jsonPlaneAsString = StringUtils.loadFileIntoString(Paths.get(parent, "plane.json").toString());
+        String jsonHelicopterAsString = StringUtils.loadFileIntoString(Paths.get(parent, "helicopter.json").toString());
         List<Aircraft> planes = mapper.readValue(jsonPlaneAsString, mapper.getTypeFactory().constructCollectionType(List.class, Plane.class));
         List<Aircraft> helicopters = mapper.readValue(jsonHelicopterAsString, mapper.getTypeFactory().constructCollectionType(List.class, Helicopter.class));
 
@@ -48,8 +43,12 @@ public class DaoFileImpl implements IDao {
         ObjectMapper mapper = new ObjectMapper();
 
         try {
-            mapper.writeValue(new File(aircraftOutputPaths), products);
+            String currentDir = System.getProperty("user.dir");
+            String outputPath = Paths.get(currentDir, "aircraft.json").toString();
+            mapper.writeValue(new File(outputPath), products);
+            System.out.println("All aircrafts are save here: " + outputPath);
         } catch (IOException e) {
+            System.out.println("Failed to save work result");
             return false;
         }
 

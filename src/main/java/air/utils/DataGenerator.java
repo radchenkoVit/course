@@ -1,5 +1,6 @@
 package air.utils;
 
+import air.Constant;
 import air.model.Aircraft;
 import air.model.powered.Helicopter;
 import air.model.powered.Plane;
@@ -7,16 +8,13 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Paths;
+import java.nio.file.Path;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
 public class DataGenerator {
-    private static String aircraftInputPaths = Paths.get(
-            "src", "main", "resources", "data", "plane.json").toString();
-    private static String helicopterInputPaths = Paths.get(
-            "src", "main", "resources", "data", "helicopter.json").toString();
 
     public static void createFakeData() throws IOException {
         ObjectMapper mapper = new ObjectMapper();
@@ -50,8 +48,12 @@ public class DataGenerator {
             helicopterList.add(generateRandomHelicopter(i));
         }
 
-        mapper.writeValue(new File(aircraftInputPaths), planeList);
-        mapper.writeValue(new File(helicopterInputPaths), helicopterList);
+        Path parent = Files.createTempDirectory(Constant.INPUT_PATH);
+
+        mapper.writeValue(new File(parent.toString(), "plane.json"), planeList);
+        mapper.writeValue(new File(parent.toString(), "helicopter.json"), helicopterList);
+
+        System.setProperty("airline.input.path", parent.toString());
     }
 
 
