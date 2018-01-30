@@ -1,4 +1,4 @@
-# course
+# Global Logic test task
 
 Description
 --------------------
