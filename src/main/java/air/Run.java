@@ -16,7 +16,7 @@ public class Run {
 
     public static void main(String[] args) throws IOException {
         DataGenerator.createFakeData(); //createFakeData
-        IDao dao = DaoFactory.getWriter("file");
+        IDao dao = DaoFactory.getInstance("file");
         List<Aircraft> aircrafts = dao.getAll();
         IAirlineController airlineController = new AirlineController(aircrafts);
 
