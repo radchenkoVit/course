@@ -44,6 +44,7 @@ public class AirlineView implements IAirlineView {
                     break;
                 case 5:
                     sortView.sortMenu();
+                    break;
                 case 6:
                     addAircraftView.run();
                     break;

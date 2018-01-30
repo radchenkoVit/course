@@ -33,16 +33,18 @@ public class SortView {
                 case 0:
                     System.out.println("Thank you to be with us");
                     System.exit(0);
+                    break;
                 default:
                     System.out.println("Unknown command");
+                    break;
             }
         }
     }
 
     private int displaySortMenu() {
         System.out.println("Choose field that you would like sort by:\n" +
-                "   1. Flight Range\n   2. Carrying Capacity\n  3. Passenger Capacity\n" +
-                "   9. Back to prev menu\n  0. Exit");
+                "   1. Flight Range\n   2. Carrying Capacity\n   3. Passenger Capacity\n" +
+                "   9. Back to prev menu\n   0. Exit");
 
         System.out.print("\nPlease, make your choice: ");
         return console.readInt();
