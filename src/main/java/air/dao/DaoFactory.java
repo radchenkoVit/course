@@ -1,11 +1,11 @@
 package air.dao;
 
 public class DaoFactory {
-    public static IDao getInstance(String type) {
+    public static IDao getInstance(DaoType type) {
         IDao writer = null;
-        if ("file".equalsIgnoreCase(type)) {
+        if (type == DaoType.File) {
             writer = DaoFileImpl.getDao();
-        } else if ("db".equalsIgnoreCase(type)) {
+        } else if (type == DaoType.DB) {
             writer = DaoDBImpl.getDao();
         }
         return writer;
