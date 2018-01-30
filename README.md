@@ -33,7 +33,7 @@ Intall
 --------------------
 Project packaging - jar
 
-After install will be generated - airline-1.0-SNAPSHOT-jar-with-dependencies.jar,
+After command '**mvn install**' will be generated - 'airline-1.0-SNAPSHOT-jar-with-dependencies.jar',
 which could be run by command java -jar airline-1.0-SNAPSHOT-jar-with-dependencies.jar.
 
 As a result of application - all data will be save in current directory.
