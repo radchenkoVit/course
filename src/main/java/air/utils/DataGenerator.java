@@ -66,6 +66,8 @@ public class DataGenerator {
         plane.setPassengerCapacity(getRandomInt());
         plane.setCruisingSpeed(getRandomInt());
         plane.setCapacity(getRandomInt());
+        plane.setCarryingCapacity(getRandomInt());
+        plane.setFlightRange(getRandomInt());
         plane.setFlightRange(getRandomInt());
         plane.setMaximumHeight(getRandomInt());
 
@@ -73,18 +75,20 @@ public class DataGenerator {
     }
 
     private static Aircraft generateRandomHelicopter(int nextId){
-        Aircraft plane = new Helicopter();
+        Aircraft helicopter = new Helicopter();
 
-        plane.setId(nextId);
-        plane.setName("Helicopter " + getRandomString());
-        plane.setEmptyWeight(getRandomInt());
-        plane.setPassengerCapacity(4);
-        plane.setCruisingSpeed(getRandomInt());
-        plane.setCapacity(getRandomInt());
-        plane.setFlightRange(getRandomInt());
-        plane.setMaximumHeight(getRandomInt());
+        helicopter.setId(nextId);
+        helicopter.setName("Helicopter " + getRandomString());
+        helicopter.setEmptyWeight(getRandomInt());
+        helicopter.setPassengerCapacity(4);
+        helicopter.setCruisingSpeed(getRandomInt());
+        helicopter.setCarryingCapacity(getRandomInt());
+        helicopter.setCapacity(getRandomInt());
+        helicopter.setFlightRange(getRandomInt());
+        helicopter.setFlightRange(getRandomInt());
+        helicopter.setMaximumHeight(getRandomInt());
 
-        return plane;
+        return helicopter;
     }
 
     private static String getRandomString(){

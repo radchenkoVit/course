@@ -74,8 +74,8 @@ public class AirlineView implements IAirlineView {
     }
 
     private void calculateTotalCapacity(){
-        System.out.println("Total capacity is: " + controller.getTotalCapacity());
-        System.out.println("Total carrying capacity is: " + controller.getCarryingCapacity());
+        System.out.printf("Total capacity is: %s tons\n", controller.getTotalCapacity());
+        System.out.printf("Total carrying capacity is: %s tons\n", controller.getCarryingCapacity());
     }
 
     private void displayListOfAircraft(){
